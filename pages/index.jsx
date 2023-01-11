@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Script from "next/script";
 import { Component } from "react";
+import Navbar from "../components/Navbar";
 import { attributes, react as HomeContent } from "../posts/what-is-js.md";
 
 export default class Home extends Component {

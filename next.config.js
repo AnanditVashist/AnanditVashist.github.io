@@ -5,11 +5,18 @@ const nextConfig = {
 		unoptimized: true,
 	},
 	webpack: (cfg) => {
-		cfg.module.rules.push({
-			test: /\.md$/,
-			loader: "frontmatter-markdown-loader",
-			options: { mode: ["react-component"] },
-		});
+		cfg.module.rules.push(
+			{
+				test: /\.md$/,
+				loader: "frontmatter-markdown-loader",
+				options: { mode: ["react-component"] },
+			},
+			{
+				test: /\.svg$/i,
+				issuer: /\.[jt]sx?$/,
+				use: ["@svgr/webpack"],
+			}
+		);
 		return cfg;
 	},
 };
